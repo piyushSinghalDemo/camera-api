@@ -1,7 +1,7 @@
 {
-  "name": "docsmart-api",
+  "name": "game-monk",
   "version": "1.0.0",
-  "description": "docsmart Api",
+  "description": "game-monk Api",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
@@ -9,7 +9,7 @@
     "test": "mocha --timeout 50000"
   },
   "keywords": [
-    "docsmart",
+    "game-monk",
     "api",
     "project"
   ],
