@@ -1,5 +1,4 @@
 const express = require('express');
-const app = express();
 const jwt = require('jsonwebtoken');
 const config = require('../config/config')
 const request = require('request')
@@ -39,7 +38,7 @@ module.exports.VerifyToken = async function (req, res, next) {
         }
         let query = {};
         if (token.data.user_id) {
-            query.user_id = token.data.user_id = token.data.user_id;
+            query.user_id = token.data.user_id;
         } else {
             query._id = token.data.id;
         }

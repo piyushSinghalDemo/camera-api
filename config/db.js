@@ -1,5 +1,5 @@
 const Mongoose = require('mongoose');
-const debug = require('debug')('gameMonk:db');
+const debug = require('debug')('crownstack:db');
 const config = require('./config');
 // Use native ES6 promises
 Mongoose.Promise = global.Promise;

@@ -1,39 +1,22 @@
 const express = require("express");
 const router = express.Router();
-const multer = require("multer");
 const Auth = require("../controllers/Auth");
-const usersController = require("../controllers/userController");
 const registerDetailController = require("../controllers/registerController");
-const loggerController = require("../controllers/loggerController");
+const categoryController = require("../controllers/categoryController");
+const productController = require("../controllers/productController");
 router.get("/", (req, res) => {
   res.json({
-    message: "Welcome to game-monk"
+    message: "Welcome to crownstack"
   });
 });
-router.get("/logs", loggerController.getLogLists);
-router.get("/logs/:log", loggerController.getLog);
 router.post("/users/login", registerDetailController.loginByUser);
-router.post(
-  "/users/register",
-  Auth.VerifyToken,
-  registerDetailController.createUser
-);
-router.get(
-  "/users/profile",
-  Auth.VerifyToken,
-  registerDetailController.getProfile
-);
-router.put(
-  "/users/password",
-  Auth.VerifyToken,
-  registerDetailController.updatePasswordForCurrentUser
-);
-router.put(
-  "/users/change-password-admin",
-  Auth.VerifyToken,
-  registerDetailController.changePasswordForUser
-);
-router.post("/users/search", Auth.VerifyToken, usersController.search);
-router.get("/users/activate", Auth.VerifyToken, usersController.activateUser); //same will activate and de-activate user
-
+router.post("/users/register", registerDetailController.createUser);
+router.use(Auth.VerifyToken);
+router.post("/users/add-to-cart", registerDetailController.addToCart);
+router.get("/users/cart-details", registerDetailController.cartDetails);
+router.post("/save-product", productController.saveProduct);
+router.post("/save-category", categoryController.saveCategory);
+router.get("/product-list", productController.productList);
+router.get("/category-list", categoryController.categoryList);
+router.get("/product-list-categoryWise", productController.productListCategoryWise);
 module.exports = router;
