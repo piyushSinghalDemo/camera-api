@@ -1,6 +1,6 @@
 const config = {
   server: {
-    port: process.env.PORT || 3003,
+    port: process.env.PORT || 8080,
     hostname: "127.0.0.1",
   },
   database: {
